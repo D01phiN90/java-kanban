@@ -37,12 +37,12 @@ public class TaskService {
 
     // Метод для создания новой subTask.
     public SubTask createSubTask(SubTask subTask) {
-        subTask.setId(generateId()); // Присвоение Id..
         Epic epic = epics.get(subTask.getEpicId()); // Поиск эпика, к которому относится подзадача.
 
         // Проверка наличия epic перед добавлением subTask.
         if (epic != null) {
-            epic.addSubTask(subTask.getId()); // Присвоение Id.
+            subTask.setId(generateId()); // Присвоение Id subTask после проверки, что есть epic.
+            epic.addSubTask(subTask.getId()); // Добавление Id subTask в epic.
             subTasks.put(subTask.getId(), subTask); // Добавление subTask в коллекцию subTasks.
             updateEpicStatus(epic); // Обновление статуса epic на основе статусов subTask.
         } else {
@@ -108,10 +108,11 @@ public class TaskService {
 
     // Метод для обновления epic.
     public void updateEpic(Epic epic) {
-        // Проверка наличия epic.
-        if (epics.containsKey(epic.getId())) {
-            epics.put(epic.getId(), epic); // Обновление epic.
-            updateEpicStatus(epic); // Обновление Status epic.
+        Epic existingEpic = epics.get(epic.getId()); // Проверка наличия epic.
+        if (existingEpic != null) {
+            existingEpic.setName(epic.getName()); // Обновление имени epic.
+            existingEpic.setDescription(epic.getDescription()); // Обновление Description epic.
+            updateEpicStatus(existingEpic); // Выясняем статус эпика на основе подзадач.
         } else {
             System.out.println("Epic with id " + epic.getId() + " not found.");
         }
@@ -121,13 +122,16 @@ public class TaskService {
     public void updateSubTask(SubTask subTask) {
         // Проверка наличия SubTask.
         if (subTasks.containsKey(subTask.getId())) {
-            subTasks.put(subTask.getId(), subTask); // Обновление subTask.
             Epic epic = epics.get(subTask.getEpicId()); // Получение epic.
+
             if (epic != null) {
+                subTasks.put(subTask.getId(), subTask); // Если такой epic есть, обновляем subTask
                 updateEpicStatus(epic); // Обновление Status epic.
+            } else {
+                System.out.println("Эпик с id " + subTask.getEpicId() + " не найден.");
             }
         } else {
-            System.out.println("SubTask with id " + subTask.getId() + " not found.");
+            System.out.println("Подзада с id " + subTask.getId() + " не найдена");
         }
     }
 

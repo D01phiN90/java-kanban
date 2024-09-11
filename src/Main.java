@@ -1,13 +1,15 @@
-import model.Epic;
-import model.Status;
-import model.SubTask;
-import model.Task;
+// Main class
+import model.*;
+import service.InMemoryTaskManager;
+import service.Managers;
+import service.TaskManager;
 
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        TaskService service = new TaskService();
+        InMemoryTaskManager service = new InMemoryTaskManager();
+        TaskManager taskManager = Managers.getDefault();
 
         // Создаем задачи
         Task task1 = service.createTask(new Task("Task 1", Status.NEW, "Description 1"));

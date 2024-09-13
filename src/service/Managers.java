@@ -1,8 +1,5 @@
 package service;
 
-import model.HistoryManager;
-import model.InMemoryHistoryManager;
-
 public class Managers {
     public static TaskManager getDefault() {
         return new InMemoryTaskManager();

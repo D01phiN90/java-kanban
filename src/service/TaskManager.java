@@ -31,4 +31,6 @@ public interface TaskManager {
     void removeAllTasks();
     void removeAllEpics();
     void removeAllSubTasks();
+
+    List<Task> getHistory();  //метод для получения истории
 }

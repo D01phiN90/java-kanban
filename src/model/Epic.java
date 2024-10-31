@@ -17,8 +17,7 @@ public class Epic extends Task {
 
     public void addSubTask(int subTaskId) {
         if (subTaskId == getId()) {
-            throw new IllegalArgumentException("Epic с ID " + getId() +
-                    " не может добавить сам себя в качестве подзадачи.");
+            throw new IllegalArgumentException("Epic с ID " + getId() + " не может добавить сам себя в качестве подзадачи.");
         }
         subTasksIds.add(subTaskId);
     }
@@ -33,12 +32,6 @@ public class Epic extends Task {
 
     @Override
     public String toString() {
-        return "Epic{" +
-                "id=" + getId() +
-                ", name='" + getName() + '\'' +
-                ", status=" + getStatus() +
-                ", description='" + getDescription() + '\'' +
-                ", subTasksIds=" + subTasksIds +
-                '}';
+        return "Epic{" + "id=" + getId() + ", name='" + getName() + '\'' + ", status=" + getStatus() + ", description='" + getDescription() + '\'' + ", subTasksIds=" + subTasksIds + '}';
     }
 }

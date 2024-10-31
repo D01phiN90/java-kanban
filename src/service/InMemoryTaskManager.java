@@ -1,6 +1,7 @@
 package service;
 
 import model.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -219,7 +220,8 @@ public class InMemoryTaskManager implements TaskManager {
                 switch (subTask.getStatus()) {
                     case NEW -> hasNew = true;
                     case IN_PROGRESS -> hasInProgress = true;
-                    case DONE -> { }
+                    case DONE -> {
+                    }
                 }
             }
         }

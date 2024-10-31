@@ -1,4 +1,3 @@
-// Main class
 import model.*;
 import service.InMemoryTaskManager;
 import service.Managers;

@@ -47,3 +47,4 @@ public interface TaskManager {
 
     List<Task> getHistory();  //метод для получения истории
 }
+// для PR

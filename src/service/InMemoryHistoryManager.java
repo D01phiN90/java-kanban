@@ -87,3 +87,4 @@ public class InMemoryHistoryManager implements HistoryManager {
         }
     }
 }
+// для PR

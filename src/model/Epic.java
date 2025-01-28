@@ -35,3 +35,4 @@ public class Epic extends Task {
         return "Epic{" + "id=" + getId() + ", name='" + getName() + '\'' + ", status=" + getStatus() + ", description='" + getDescription() + '\'' + ", subTasksIds=" + subTasksIds + '}';
     }
 }
+// для PR

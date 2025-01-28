@@ -11,3 +11,4 @@ public interface HistoryManager {
 
     List<Task> getHistory();
 }
+// для PR

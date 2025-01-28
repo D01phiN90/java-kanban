@@ -102,3 +102,4 @@ public class Main {
         System.out.println("Все подзадачи после удаления: " + service.getAllSubTasks());
     }
 }
+// для PR

@@ -17,3 +17,4 @@ class TaskTest {
         assertEquals(task1, task2, "Задачи с одинаковыми ID должны быть равны");
     }
 }
+// для PR

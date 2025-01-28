@@ -19,7 +19,7 @@ public class Main {
         System.out.println("Имя задачи 2: " + task2.getName());
         System.out.println("Описание задачи 2: " + task2.getDescription());
 
-        // Изменение имени и описания task1
+        // Изменение имени и описания Task1
         task1.setName("Updated Task 1");
         task1.setDescription("Updated Description 1");
         service.updateTask(task1);
